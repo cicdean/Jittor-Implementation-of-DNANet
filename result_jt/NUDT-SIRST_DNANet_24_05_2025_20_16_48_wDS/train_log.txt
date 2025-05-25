@@ -1,0 +1,9 @@
+time:--24/05/2025 20:16:48
+epchos:--450
+channel_size:--3
+backbone:--resnet_18
+deep_supervision:--True
+dataset:--NUDT-SIRST
+split:--50_50
+lr:--0.05
+min_lr:--1e-05

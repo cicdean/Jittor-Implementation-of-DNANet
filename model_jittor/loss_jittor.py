@@ -1,0 +1,33 @@
+import jittor as jt
+import numpy as np
+
+def SoftIoULoss_jt( pred, target):
+
+        pred = pred.sigmoid()
+        smooth = 1
+
+        intersection = pred * target
+        loss = (intersection.sum() + smooth) / (pred.sum() + target.sum() -intersection.sum() + smooth)
+
+        loss = 1 - loss.mean()
+
+        return loss
+
+class AverageMeter_jt(object):
+
+    def __init__(self):
+        self.reset()
+
+    def reset(self):
+        self.val = 0
+        self.avg = 0
+        self.sum = 0
+        self.count = 0
+
+    def update(self, val, n=1):
+        self.val = val
+        self.sum += val * n
+        self.count += n
+        self.avg = self.sum / self.count
+
+
